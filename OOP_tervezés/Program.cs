@@ -21,9 +21,22 @@ namespace OOP_tervezes
 			Console.WriteLine(t1);
 			Console.WriteLine(t2);
 
+            /*Console.WriteLine(h2.SideA);
+			try
+			{
+				h2.SideA = 10;
+			}
+			catch (ArgumentException ex)
+			{
+                Console.WriteLine(ex.Message);
+            }
+            Console.WriteLine(h2.SideA);*/
+            Console.WriteLine("\n\n");
+			Paralelogramma p1 = new Paralelogramma();
+			Console.WriteLine(p1);
 
 
-			Console.ReadKey();
+            Console.ReadKey();
 		}
 	}
 }

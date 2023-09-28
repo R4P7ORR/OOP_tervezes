@@ -16,12 +16,66 @@ namespace OOP_tervezés
 		{
 			this.sideB = sideB;
 			this.sideC = sideC;
+			if (!isAddressable())
+			{
+				throw new ArgumentException("A háromszög nem szerkeszthető!");
+			}
 		}
 		public Haromszog() :base(randomSideLength())
 		{
 			this.sideB = randomSideLength();
 			this.sideC = randomSideLength();
+			while (!isAddressable())
+			{
+				this.SideA = randomSideLength();
+				this.SideB = randomSideLength();
+				this.SideC = randomSideLength();
+			}
 		}
+
+		public override double SideA
+		{
+			set
+			{
+				base.SideA = value;
+				if (!isAddressable())
+				{
+					throw new ArgumentException("A háromszög nem szerkeszthető!", nameof(value));
+				}
+			}
+		}
+		public double B
+		{
+			get => sideB;
+			set
+			{
+				this.sideB = value;
+				if (!isAddressable())
+				{
+					throw new ArgumentException("A háromszög nem szerkeszthető!", nameof(value));
+				}
+			}
+		}
+		public double C
+		{
+			get => sideC;
+			set
+			{
+				this.sideC = value;
+				if (!isAddressable())
+				{
+					throw new ArgumentException("A háromszög nem szerkeszthető!", nameof(value));
+				}
+			}
+		}
+
+		private bool isAddressable()
+		{
+			return this.SideA + this.SideB > this.sideC
+				&& this.SideA + this.SideC > this.SideB
+				&& this.SideB + this.SideC > this.SideC;
+		}
+
 		private  static int randomSideLength()
 		{
 			return rnd.Next(5, 16);

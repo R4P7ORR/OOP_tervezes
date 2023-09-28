@@ -15,7 +15,7 @@ namespace OOP_tervezés
 			this.sideA = sideA;
 		}
 
-		public double SideA { get => sideA; set => sideA = value; }
+		public virtual double SideA { get => sideA; set => sideA = value; }
 
 		public abstract double getPerimiter();
 		public abstract double getArea();
